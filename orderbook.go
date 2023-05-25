@@ -10,7 +10,7 @@ type Order struct {
 	MakerId   string  `json:"maker_id" db:"maker_id"`
 	TokenBid  string  `json:"token_bid" db:"token_bid"`
 	TokenAsk  string  `json:"token_ask" db:"token_ask"`
-	Rate      float64 `json:"rate" json:"rate"`
+	Rate      float64 `json:"rate" db:"rate"`
 	MaxVolume float64 `json:"max_volume" db:"max_volume"`
 	MinVolume float64 `json:"min_volume" db:"min_volume"`
 }
