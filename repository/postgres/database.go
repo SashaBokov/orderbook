@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"github.com/SashaBokov/orderbook"
 	"github.com/pkg/errors"
-	orderbook "orderbook"
 )
 
 // Check that Database implements orderbook.OrderBook

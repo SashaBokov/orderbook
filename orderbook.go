@@ -1,7 +1,7 @@
 package orderbook
 
 import (
-	"orderbook/repository/postgres"
+	"github.com/SashaBokov/orderbook/repository/postgres"
 )
 
 // Order is representation of P2P order
