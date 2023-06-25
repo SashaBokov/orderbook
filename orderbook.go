@@ -37,7 +37,7 @@ type OrderBook interface {
 	// ListOrdersByPair getting orders from orderbook by pair
 	ListOrdersByPair(tokenBid, tokenAsk string, limit, offset int) ([]Order, error)
 	// ListOrdersByMakerId getting order from orderbook
-	ListOrdersByMakerId(makerId string, limit, offset int) (Order, error)
+	ListOrdersByMakerId(makerId string, limit, offset int) ([]Order, error)
 	//	ListMaxRateOrders getting orders from orderbook with max rate
 	ListMaxRateOrders(tokenBid, tokenAsk string, limit, offset int) ([]Order, error)
 	//	ListMinRateOrders getting orders from orderbook with min rate

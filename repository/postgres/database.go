@@ -205,22 +205,22 @@ func (db *Database) ListOrdersByPair(tokenBid, tokenAsk string, limit, offset in
 }
 
 // ListOrdersByMakerId getting order from orderbook
-func (db *Database) ListOrdersByMakerId(makerId string, limit, offset int) (orderbook.Order, error) {
+func (db *Database) ListOrdersByMakerId(makerId string, limit, offset int) ([]orderbook.Order, error) {
 	rows, err := db.conn.Query(listOrdersByMakerIdQuery, makerId, db.convertLimitOffset(limit, offset))
 	if err != nil {
-		return orderbook.Order{}, errors.Wrap(err, "getting order by maker id")
+		return nil, errors.Wrap(err, "getting order by maker id")
 	}
 
 	orders, err := db.parseSQLRowsToOrders(rows)
 	if err != nil {
-		return orderbook.Order{}, errors.Wrap(err, "parsing sql rows to orders")
+		return nil, errors.Wrap(err, "parsing sql rows to orders")
 	}
 
 	if len(orders) == 0 {
-		return orderbook.Order{}, fmt.Errorf("no orders with this maker id")
+		return nil, fmt.Errorf("no orders with this maker id")
 	}
 
-	return orderbook.Order{}, nil
+	return orders, nil
 }
 
 // ListMaxRateOrders getting orders from orderbook with max rate
